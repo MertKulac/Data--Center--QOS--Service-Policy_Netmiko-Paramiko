@@ -1,6 +1,6 @@
 def policy():
         ExcelExport = [["Description", "Interface", "Input_Policy","Output_Policy"]]
-        ciscoasr9k = { "host" : "92.44.0.22","username" :"TEST","password" :"TEST","port" : 22,"device_type" : "cisco_xr",}
+        ciscoasr9k = { "host" : "192.168.0.10","username" :"TEST","password" :"TEST","port" : 22,"device_type" : "cisco_xr",}
         conn = ConnectHandler(**ciscoasr9k)
         conn.enable()
         data_to_parse = conn.send_command_timing('show run interface')
