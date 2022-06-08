@@ -11,11 +11,11 @@ interface Bundle-Ether{{ interface_Bundle | split(".") }}
  service-policy input {{ qos_input }}
  service-policy output {{ qos_output}}
 """
-        # create parser object and parse data using template:
+        #   create parser object and parse data using template:
         parser = ttp(data=data_to_parse, template=ttp_template)
         parser.parse()
 
-        # print result in JSON format
+        #   print result in JSON format
 
         results = parser.result(format='json')[0]
         result = json.loads(results)
@@ -38,11 +38,11 @@ interface Bundle-Ether{{ interface_Bundle | split(".") }}
         SendMailwAttachment_(ExcelExport, "policy1.xlsx")
 
 
-#schedule.every(10).minutes.do(policy)
-#schedule.every().hour.do(policy)
-#schedule.every().day.at("07:59").do(policy)
-#schedule.every().monday.do(policy)
-#schedule.every().monday.at("08:00").do(policy)
+#  schedule.every(10).minutes.do(policy)
+#  schedule.every().hour.do(policy)
+#  schedule.every().day.at("07:59").do(policy)
+#  schedule.every().monday.do(policy)
+#  schedule.every().monday.at("08:00").do(policy)
 schedule.every().minute.at(":05").do(policy)
 
 while True:
